@@ -1,0 +1,443 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Dancing Script", cursive;
+  color: #ff1493;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 0 0 50px 50px;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #ff69b4;
+}
+
+/* Main content */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+.chapter-intro {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Letter container */
+.letter-container {
+  background: linear-gradient(135deg, #ffe4e1, #ffb6c1);
+  border-radius: 20px;
+  padding: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.letter-container p {
+  margin-bottom: 1rem;
+}
+
+/* Envelope Container */
+.envelope-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  margin: 0;
+  position: relative;
+}
+
+/* Envelope */
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+.envelope-body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.envelope-text {
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Dancing Script", cursive;
+  margin: 0;
+  padding-top: 2rem;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  border-radius: 10px;
+  transform-origin: top;
+  transition: transform 0.6s ease;
+  z-index: 1;
+  clip-path: polygon(0 0, 100% 0, 50% 50%);
+}
+
+.envelope.opening .envelope-flap {
+  transform: rotateX(-180deg);
+}
+
+/* Letter Paper */
+.letter-paper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.5s ease;
+  overflow-y: auto;
+  padding: 3rem;
+}
+
+.letter-paper.show {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background: #ff69b4;
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.close-button:hover {
+  background: #ff1493;
+  transform: rotate(90deg);
+}
+
+.letter-content {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.letter-greeting {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.8rem;
+  color: #ff1493;
+  margin-bottom: 1.5rem;
+}
+
+.letter-body {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.letter-closing {
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+.letter-signature {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+  color: #ff1493;
+  margin-top: 0.5rem;
+}
+
+/* Final Message */
+.final-message {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  color: #ff1493;
+  font-weight: 500;
+}
+
+/* Backdrop */
+.letter-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.letter-backdrop.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.nav-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  header {
+    padding: 1.5rem 1rem;
+    border-radius: 0 0 30px 30px;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .chapter-intro {
+    font-size: 1rem;
+    padding: 0 1rem;
+    margin-bottom: 0rem;
+  }
+
+  .letter-container {
+    padding: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .final-message {
+    font-size: 1rem;
+  }
+
+  .navigation {
+    justify-content: center;
+  }
+
+  .nav-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .envelope {
+    width: 250px;
+    height: 170px;
+  }
+
+  .envelope-container {
+    min-height: 450px;
+  }
+
+  .envelope-text {
+    font-size: 1rem;
+  }
+
+  .letter-paper {
+    width: 95%;
+    padding: 2rem 1.5rem;
+  }
+
+  .letter-greeting {
+    font-size: 1.5rem;
+  }
+
+  .letter-signature {
+    font-size: 1.2rem;
+  }
+
+  .intro-text,
+  .chapter-intro {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  header {
+    padding: 1rem 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+
+  .chapter-intro {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .letter-container {
+    padding: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .envelope {
+    width: 200px;
+    height: 140px;
+  }
+
+  .envelope-container {
+    min-height: 300px;
+  }
+
+  .envelope-text {
+    font-size: 0.9rem;
+  }
+
+  .letter-paper {
+    width: 95%;
+    padding: 2rem 1rem;
+  }
+
+  .letter-content {
+    font-size: 1rem;
+  }
+
+  .letter-greeting {
+    font-size: 1.3rem;
+  }
+
+  .letter-signature {
+    font-size: 1.1rem;
+  }
+
+  .close-button {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+
+  .final-message {
+    font-size: 0.95rem;
+  }
+
+  .nav-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Page transition effects */
+.page-transition-up {
+  animation: slideUpOut 0.8s ease-in-out forwards;
+}
+
+@keyframes slideUpOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}

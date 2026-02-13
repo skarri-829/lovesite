@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Love Story - Songs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/songs.css" />
+  </head>
+  <body>
+    <div class="page-container">
+      <header>
+        <h1>Chapter 2: Our Favorite Songs</h1>
+        <p>The soundtrack of our love story 🎵</p>
+      </header>
+
+      <main>
+        <div class="chapter-intro">
+          <p>
+            Music has always been a big part of us. This song reminds me of you,
+            of us, of our beautiful journey...
+          </p>
+        </div>
+
+        <div class="vinyl-player-container">
+          <div class="player-left">
+            <div class="vinyl-player">
+              <div class="player-body">
+                <div class="player-arm" id="playerArm"></div>
+                <img
+                  src="assets/image.png"
+                  alt="Special Image"
+                  class="player-image"
+                />
+                <button class="play-button" id="playButton">
+                  <span class="play-icon">▶</span>
+                  <span class="pause-icon" style="display: none">⏸</span>
+                </button>
+                <canvas class="scratch-pad" id="scratchPad"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="disc-container">
+            <div class="vinyl-disc" id="vinylDisc">
+              <div class="disc-center"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="navigation">
+          <a href="memories.html" class="nav-button next">
+            <span>Next Chapter: Our Memories ➡️</span>
+          </a>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/songs.js"></script>
+  </body>
+</html>

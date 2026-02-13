@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Love Story - Enter Password</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div class="password-container">
+      <div class="image-container">
+        <p class="hint-text">Hint: It's our Anniversary Date</p>
+        <img
+          src="assets/crystal-valentine-s-day-icon-design.png"
+          alt="Locked Heart"
+          class="lock-image"
+        />
+        <div class="inputs-overlay">
+          <input
+            type="text"
+            maxlength="1"
+            class="digit-input"
+            id="digit1"
+            required
+          />
+          <input
+            type="text"
+            maxlength="1"
+            class="digit-input"
+            id="digit2"
+            required
+          />
+          <input
+            type="text"
+            maxlength="1"
+            class="digit-input"
+            id="digit3"
+            required
+          />
+          <input
+            type="text"
+            maxlength="1"
+            class="digit-input"
+            id="digit4"
+            required
+          />
+        </div>
+      </div>
+      <h1>Enter the Secret Code</h1>
+      <p>To unlock our adventure...</p>
+      <button type="submit" id="unlock-btn" class="unlock-btn">
+        Unlock ❤️
+      </button>
+      <p id="error-message" class="error"></p>
+    </div>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
