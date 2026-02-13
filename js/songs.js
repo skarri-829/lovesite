@@ -272,12 +272,27 @@ function playSong() {
     }
 
     audio = new Audio(songUrl);
-    audio.play().catch((e) => {
-      console.log("Audio play failed:", e);
-      alert(
-        "Unable to play the song. Please make sure the audio file exists at /assets/darling.mp3",
-      );
+    
+    // Add load error handling
+    audio.addEventListener('error', (e) => {
+      console.error("Audio loading error:", e);
+      console.error("Audio error code:", audio.error ? audio.error.code : 'unknown');
+      alert("Unable to load the audio file. Error: " + (audio.error ? audio.error.message : 'Unknown error'));
     });
+    
+    // Try to play with better error handling
+    const playPromise = audio.play();
+    
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        console.log("Audio playing successfully");
+      }).catch((e) => {
+        console.error("Audio play failed:", e);
+        alert(
+          "Unable to play the song. This might be due to browser restrictions. Try clicking the play button below.",
+        );
+      });
+    }
 
     // Also trigger the visual player
     if (playButton) {
