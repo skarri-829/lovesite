@@ -264,7 +264,7 @@ function playSong() {
   // 1. Using a YouTube to MP3 converter website
   // 2. Hosting the audio file on your own server
   // 3. Using a music streaming service that provides direct links
-  const songUrl = "assets/darling.mp3";
+  const songUrl = "/assets/darling.mp3";
 
   if (songUrl && songUrl !== "YOUR_SONG_URL_HERE") {
     if (audio) {
@@ -275,7 +275,7 @@ function playSong() {
     audio.play().catch((e) => {
       console.log("Audio play failed:", e);
       alert(
-        "Unable to play the song. Please make sure the audio file exists at assets/darling.mp3",
+        "Unable to play the song. Please make sure the audio file exists at /assets/darling.mp3",
       );
     });
 
